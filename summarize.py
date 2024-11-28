@@ -2,9 +2,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.retrievers import WikipediaRetriever
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_ollama import ChatOllama
 
 import os
-os.environ["GOOGLE_API_KEY"] = "AIzaSyBmD7z5uWUA5lCGZCvyDhL9bqgXpziZXGY"
 
 import requests
 
@@ -34,5 +34,5 @@ def summarize_wiki(query: str) -> str:
 			("user", info)
 		)
         
-    prompt = ChatPromptTemplate.from_messages(prompt_list).invoke({"{query}", query})
+    prompt = ChatPromptTemplate.from_messages(prompt_list).invoke({"query": query})
     return llm.invoke(prompt).content

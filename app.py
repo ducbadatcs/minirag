@@ -1,7 +1,7 @@
 # Importing flask module in the project is mandatory
 # An object of Flask class is our WSGI application.
 from flask import Flask, render_template, redirect, url_for, request
-from summarize import *
+from summarize import summarize_wiki
 
 # Flask constructor takes the name of 
 # current module (__name__) as argument.
@@ -19,7 +19,7 @@ def hello_world():
 def summarize():
     if request.method == "POST":
         text = request.form.get("text")
-        return f"<p>{text}</p>"
+        return f"<p>{summarize_wiki(text)}</p>"
 
 # main driver function
 if __name__ == '__main__':
