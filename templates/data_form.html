@@ -8,11 +8,14 @@
 </head>
 
 <body>
+	<h1>Wikipedia Searcher</h1>
+	<p>Searching Knowledge from Wikipedia for guaranteed accuracy.</p>
 	<form method="post" action="{{ url_for('summarize') }}">
 		<label for="text">Enter text to sumarize:</label><br>
 		<textarea name="text" id="text"></textarea><br>
 		<input type="submit" value="Summarize!">
 	</form>
+	<p>Application by Hoàng Minh Đức.</p>
 </body>
 
 </html>
